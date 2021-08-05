@@ -1672,6 +1672,8 @@ class InferResult:
                 else:
                     np_array = np.empty(0)
                 np_array = np_array.reshape(shape)
+                with open(name + '_client.txt', 'a') as file:
+                    file.write(str(np_array.tolist()))
                 return np_array
             else:
                 index += 1
