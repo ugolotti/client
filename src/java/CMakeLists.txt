@@ -50,7 +50,7 @@ if(TRITON_ENABLE_JAVA_HTTP)
   add_custom_command(
     OUTPUT "${PROJECT_TARGET_DIR}/${PROJECT_JAR}"
     COMMAND mkdir -p ${CMAKE_INSTALL_PREFIX}/java
-    COMMAND mvn clean install -Ddir=${PROJECT_TARGET_DIR}/examples
+    COMMAND mvn clean install -Ddir=${PROJECT_TARGET_DIR}/examples -Dmaven.test.skip=true -DskipTests
     COMMAND cp -r ${PROJECT_TARGET_DIR}/examples ${CMAKE_INSTALL_PREFIX}/java
     COMMAND cp -r ${PROJECT_TARGET_DIR}/${PROJECT_JAR} ${CMAKE_INSTALL_PREFIX}/java
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
