@@ -172,6 +172,8 @@ class InferenceServerClient(InferenceServerClientBase):
         ssl_options=None,
         ssl_context_factory=None,
         insecure=False,
+        proxy_host=None,
+        proxy_port=None,
     ):
         super().__init__()
         if url.startswith("http://") or url.startswith("https://"):
@@ -187,6 +189,8 @@ class InferenceServerClient(InferenceServerClientBase):
             ssl_options=ssl_options,
             ssl_context_factory=ssl_context_factory,
             insecure=insecure,
+            proxy_host=proxy_host,
+            proxy_port=proxy_port,
         )
         self._pool = gevent.pool.Pool(max_greenlets)
         self._verbose = verbose
